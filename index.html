@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+
+<body>
+    
+    <h1>Tuto</h1>
+
+    <h4>Aqui pueden ver el codigo de cada funcion</h4>
+        <p>
+        IF ////////////////////////////////////////////////////
+        <br><br>
+        Aqui el if solo comprobará que el número que ingreses sea distinto a cero y te dirá cual es
+        <br><br>
+        let a = prompt ("ingrese un número distinto de 0");
+        <br>
+        if(a != 0){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;alert ("Número ingresado: " + a);<br>
+        }else{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;alert ( "Valor no valido" );<br>
+        } <br> <br> <br>
+        FOR ////////////////////////////////////////////////////
+<br> <br>
+        En este caso con la funcion For hara un bucle en el que sumará una cuenta cada vez que se repita el loop hasta llegar a 10
+<br> <br>
+        for ( let b = 0; b < 11; b++ ) {  <br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;alert ( "La cuenta va en: " + b ) <br>
+<br>
+        }   
+        <br> <br> <br>
+        WHILE ////////////////////////////////////////////////////
+        <br> <br>
+        En este caso te solisitara que ingreses un usuario y siempre que el usuario no esté en la lista de baneados te saludará, en caso de estar baneado te lo informará, si escribes ESC fializará el codigo
+<br> <br>
+        let usuario = prompt ( "Ingrese usuario" );    <br>
+        let baneado = "juan";   <br>
+<br>
+        while ( usuario != baneado ){ <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;alert ( "Bienvenido " + usuario ); <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;usuario = prompt ( "Ingrese otro usuario" )    <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if ( usuario = ESC ){ <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break; <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;} <br>
+        } <br>
+<br>
+        alert("Usuario no permitido"); <br>
+<br>
+
+    </p>
+
+</body>
+
+<script src="/js/main.js"></script>
+
+</html>
