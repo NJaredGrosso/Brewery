@@ -1,13 +1,86 @@
+// Variables /////////////////////////
 
+    let precio
+    let envase
+    let cantidad
+
+//Objetos ////////////////////////////
+    const ipa = {nombre: "IPA", precioXlitro: 250 }
+    const apa = {nombre: "APA", precioXlitro: 280 }
+    const golden = {nombre: "Golden", precioXlitro: 220 }
+    const porter = {nombre: "Porter", precioXlitro: 250 }
+
+//Array //////////////////////////////
+
+const cervezas = [ipa, apa, golden, porter];
+const envases = [500, 1000, 20000];
+
+//Funciones //////////////////////////
+
+    const calcularPrecio = (precioXlitro, envase, cantidad) => {
+        precio = precioXlitro*envase*cantidad
+        console.log("$" + precio)
+    }
+
+    const pedirEnvase = () => {
+        let envaseElegido = (prompt("¿Que medida de envase?\n 1. " + envases[0] + "cc.\n2. " + envases[1] + "cc.\n3. " + envases[2] + "cc."))
+        switch (envaseElegido) {
+            case '1':
+                envase = 0.6
+                break;
+            case '2':
+                envase = 1
+                break;
+            case '3':
+                envase = 18
+                break;
+            default:
+                alert("Opcion no disponible")
+                break;
+        }
+    }
+
+    const pedirCantidad = () => {
+        cantidad = (+prompt("¿Cuantas quiere?"))
+    }
+
+//Codigo ////////////////////////////
 alert("Bienvenidos a la cerveceria")
 while(true){
     let usuario = (prompt("Eres cliente o empleado? \nCliente: 1 | Empleado: 2"))           
 
     if(usuario==1){             //El usuario es un cliente
+    while(true){
         let menuC = (prompt("¿Que te gustaria hacer?\n1. Comprar\n2. Contactanos"))
         switch (menuC) {
             case "1":
-                alert("Disfruta revisando el catalogo de la página")
+                let compra = (prompt("¿Que cerveza te gustaría?\n1. " + cervezas[0].nombre + "\n2. " + cervezas[1].nombre + "\n3. " + cervezas[2].nombre + "\n4. " + cervezas[3].nombre))
+                switch (compra) {
+                    case '1':
+                        pedirEnvase();
+                        pedirCantidad();
+                        calcularPrecio(cervezas[0].precioXlitro, envase, cantidad);
+                        break;
+                    case '2':
+                        pedirEnvase();
+                        pedirCantidad();
+                        calcularPrecio(cervezas[1].precioXlitro, envase, cantidad);
+                        break;
+                    case '3':
+                        pedirEnvase();
+                        pedirCantidad();
+                        calcularPrecio(cervezas[2].precioXlitro, envase, cantidad);
+                        break;
+                    case '4':
+                        pedirEnvase();
+                        pedirCantidad();
+                        calcularPrecio(cervezas[3].precioXlitro, envase, cantidad);
+                        break;
+                
+                    default:
+                        alert("Respuesta no valida")
+                        break;
+                }
                 break;
             case "2":
                 alert("Llamanos al 03548 123456\n Buescanos en Instagram como @LaCerveceria")
@@ -16,10 +89,11 @@ while(true){
                 alert("opcion no valida")
                 break;
         }
+    }
     }else if(usuario==2){       //El usuario es un empleado
         alert("Eres Empleado")
         while(true){
-        let menuE = (prompt("Bienvenido ¿que necesitas?\n1. Consultar pedidos\n2. Agregar pedidos\n3. Agregar Stock"))
+        let menuE = (prompt("Bienvenido ¿que necesitas?\n1. Consultar pedidos\n2. Agregar pedidos\n3. Agregar Stock \n4. Agregar un producto"))
         switch(menuE){
             case '1':         //Consultar pedidos
                 alert("PEDIDOS\nEl Buho: 2 IPA, 2 Golden, 3 APA\nCasa Caraffa: 1 IPA, 4 Golden, 2 Porter\nRapsody: 4 Golden, 2 APA, 2 Porter")
@@ -45,7 +119,16 @@ while(true){
                     add = prompt("Agregar mas? s/n")
                 }
                 break;
-            default:         //Castigo xD
+            case '4':         //Agregar producto
+                let nombreCerveza = prompt("Nombre de la cerveza: ")
+                let precioCerveza = +prompt("Precio por Litro: ")
+                cervezas.push({nombre: nombreCerveza, precioXlitro: precioCerveza});
+                for (const cerveza of cervezas){
+                    console.log(cerveza.nombre);
+                    console.log(cerveza.precioXlitro);
+                }
+                break;
+            default:          //Castigo xD
                 alert("No seleccionaste una opcion valida, para repensar que tenes que elegir vas a tener lo que te lleve aceptar 7 alertas :3")
                 for (let castigo = 0; castigo < 8; castigo++) {
                     alert (castigo)                    
