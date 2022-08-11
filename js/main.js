@@ -91,14 +91,13 @@ while(true){
         }
     }
     }else if(usuario==2){       //El usuario es un empleado
-        alert("Eres Empleado")
         while(true){
         let menuE = (prompt("Bienvenido ¿que necesitas?\n1. Consultar pedidos\n2. Agregar pedidos\n3. Agregar Stock \n4. Agregar un producto"))
         switch(menuE){
             case '1':         //Consultar pedidos
                 alert("PEDIDOS\nEl Buho: 2 IPA, 2 Golden, 3 APA\nCasa Caraffa: 1 IPA, 4 Golden, 2 Porter\nRapsody: 4 Golden, 2 APA, 2 Porter")
                 break;              //Aca despues tengo que hacer que lo agregado en agregar pedidos se muestre
-            case '2':         //Agregar pedidos
+            case '2':         //Agregar pedidos (En un futuro esto iria a una base de datos a la que consultaria "Consultar pedidos")
                 let pedidoCliente = (prompt("Ingresa el cliente que realizó el pedido"))        //Ingresamos nombre bajo el que se hace el pedido
                 let more
                 do{
@@ -108,7 +107,7 @@ while(true){
                     more = (prompt("¿Agregar mas items? s/n"))
                 }while(more == "s")
                 break;
-            case '3':         //Agregar stock                
+            case '3':         //Agregar stock (En un futuro esto se almacenaria en una base de datos para no perder la info)
                 let cerveza = prompt("¿A que cerveza agregar?\nIPA\nGolden\nAPA\nPorter")
                 let cantCerveza = 0
                 let add = "s"
@@ -119,7 +118,7 @@ while(true){
                     add = prompt("Agregar mas? s/n")
                 }
                 break;
-            case '4':         //Agregar producto
+            case '4':         //Agregar producto (En el futuro esto guardaría en una base de datos para no perder los productos)
                 let nombreCerveza = prompt("Nombre de la cerveza: ")
                 let precioCerveza = +prompt("Precio por Litro: ")
                 cervezas.push({nombre: nombreCerveza, precioXlitro: precioCerveza});
