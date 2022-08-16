@@ -1,3 +1,4 @@
+
 // Variables /////////////////////////
 
     let precio
@@ -5,6 +6,7 @@
     let cantidad
 
 //Objetos ////////////////////////////
+
     const ipa = {nombre: "IPA", precioXlitro: 250 }
     const apa = {nombre: "APA", precioXlitro: 280 }
     const golden = {nombre: "Golden", precioXlitro: 220 }
@@ -12,8 +14,11 @@
 
 //Array //////////////////////////////
 
-const cervezas = [ipa, apa, golden, porter];
-const envases = [500, 1000, 20000];
+    const cervezas = [{nombre: "IPA", precioXlitro: 250, imagen: "https://picsum.photos/200/300" },
+                     {nombre: "APA", precioXlitro: 280, imagen: "https://picsum.photos/200/300"},
+                     {nombre: "Golden", precioXlitro: 220, imagen: "https://picsum.photos/200/300" },
+                     {nombre: "Porter", precioXlitro: 250, imagen: "https://picsum.photos/200/300" }];
+    const envases = [500, 1000, 20000];
 
 //Funciones //////////////////////////
 
@@ -44,7 +49,39 @@ const envases = [500, 1000, 20000];
         cantidad = (+prompt("¿Cuantas quiere?"))
     }
 
+    const confirmarEdad = () =>{
+        let edad = document.getElementById("edad").value;
+        let cartel = document.getElementById("preguntaEdad");
+        let cartelTexto = document.getElementById("ingresaEdad");
+        let cartelInput = document.getElementById("edad")
+        let cartelButton = document.getElementById("ingresar")
+    
+        console.log(edad);
+
+        if(edad>18){
+            cartel.remove();
+        }else{
+            cartelTexto.innerText = "NO TIENES EDAD SUFICIENTE"
+            cartelInput.remove()
+            cartelButton.remove()
+        }
+    };
+
 //Codigo ////////////////////////////
+
+const carta = document.getElementsByClassName("productos");
+
+
+for (const cerveza of cervezas) {
+    
+    let contenedor = document.createElement("div")
+    contenedor.innerHTML = `<img src="${cerveza.imagen}" alt="">
+                            <h3> ${cerveza.nombre}</h3>
+                            <b> $ ${cerveza.precioXlitro}</b>`;
+    cartaProductos.appendChild(contenedor);
+}
+
+/*
 alert("Bienvenidos a la cerveceria")
 while(true){
     let usuario = (prompt("Eres cliente o empleado? \nCliente: 1 | Empleado: 2"))           
@@ -139,3 +176,5 @@ while(true){
         alert("Respuesta no valida")
     }
 }
+
+*/

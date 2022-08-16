@@ -1,0 +1,24 @@
+@mixin cienXcien{
+    height: 100%;
+    width: 100%;
+}
+
+@mixin cienvh{
+    height: 100vh;
+    width: 99%;
+}
+
+@mixin bordeNegro {
+    border: 2px solid black;
+}
+
+
+@mixin relativeTop{
+    position: relative;
+    top: 0;
+}
+
+@mixin relativeBottom {
+    position: relative;
+    bottom: 0;
+}
