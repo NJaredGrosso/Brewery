@@ -53,7 +53,7 @@
         align-items: center;
         #preguntaEdad{
             height: 90%;
-            width: 90%;
+            width: 95%;
             margin: 40px;
             background-color: rgba(93, 180, 192, 0.952);
             @include bordeNegro;
@@ -70,8 +70,6 @@
         .inicio{
             @include cienvh;
             @include bordeNegro;
-            background-color: green;
-
             h1{
                 height: 5%;
                 width: 100%;

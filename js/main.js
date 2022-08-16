@@ -5,6 +5,8 @@
     let envase
     let cantidad
 
+    let ingresar = document.querySelector("#ingresar")
+
 //Objetos ////////////////////////////
 
     const ipa = {nombre: "IPA", precioXlitro: 250 }
@@ -49,7 +51,7 @@
         cantidad = (+prompt("¿Cuantas quiere?"))
     }
 
-    const confirmarEdad = () =>{
+    ingresar.onclick = () =>{
         let edad = document.getElementById("edad").value;
         let cartel = document.getElementById("preguntaEdad");
         let cartelTexto = document.getElementById("ingresaEdad");
