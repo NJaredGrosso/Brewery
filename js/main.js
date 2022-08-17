@@ -7,19 +7,12 @@
 
     let ingresar = document.querySelector("#ingresar")
 
-//Objetos ////////////////////////////
-
-    const ipa = {nombre: "IPA", precioXlitro: 250 }
-    const apa = {nombre: "APA", precioXlitro: 280 }
-    const golden = {nombre: "Golden", precioXlitro: 220 }
-    const porter = {nombre: "Porter", precioXlitro: 250 }
-
 //Array //////////////////////////////
 
-    const cervezas = [{nombre: "IPA", precioXlitro: 250, imagen: "https://picsum.photos/200/300" },
-                     {nombre: "APA", precioXlitro: 280, imagen: "https://picsum.photos/200/300"},
-                     {nombre: "Golden", precioXlitro: 220, imagen: "https://picsum.photos/200/300" },
-                     {nombre: "Porter", precioXlitro: 250, imagen: "https://picsum.photos/200/300" }];
+    const cervezas = [{nombre: "IPA", precioXlitro: 250, imagen: "./assets/productos/cerveza_IPA.png" },
+                     {nombre: "APA", precioXlitro: 280, imagen: "./assets/productos/cerveza_APA.png"},
+                     {nombre: "Golden", precioXlitro: 220, imagen: "./assets/productos/cerveza_golden.png" },
+                     {nombre: "Porter", precioXlitro: 250, imagen: "./assets/productos/cerveza_porter.png" }];
     const envases = [500, 1000, 20000];
 
 //Funciones //////////////////////////

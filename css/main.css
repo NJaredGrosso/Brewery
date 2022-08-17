@@ -1,25 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Dancing+Script&display=swap");
 * {
   margin: 0;
   padding: 0; }
 
+html {
+  scroll-behavior: smooth; }
+
 .body {
   height: 100%;
   width: 100%;
-  background-color: aqua;
   display: grid;
-  grid-template-columns: 90px auto; }
+  grid-template-columns: 95px auto; }
   .body .header {
     width: 95px;
     height: 100vh;
-    background-color: rgba(255, 255, 0, 0.979);
+    padding: 10px;
+    background-color: #610000;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: sticky;
-    top: 0; }
+    top: 0;
+    z-index: 10;
+    transition: 1s; }
     .body .header .logo {
-      height: 10%;
-      width: 90%;
+      height: 100px;
+      width: 100px;
       margin: 10px; }
     .body .header nav {
       height: 100%;
@@ -27,21 +33,37 @@
       .body .header nav .navOpciones {
         height: 100%;
         width: 100%;
-        padding: 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         justify-content: space-around;
         align-items: center;
         color: rgba(0, 0, 0, 0); }
-        .body .header nav .navOpciones .linkNav {
-          color: black;
+        .body .header nav .navOpciones li .linkNav {
+          width: 100%;
+          margin-left: 5px;
+          display: flex;
+          align-items: center;
+          color: #dddddd;
           font-family: 'Courgette', cursive;
           text-decoration: none;
-          font-weight: bold; }
+          font-weight: bold;
+          font-size: 0;
+          transition: 1s;
+          gap: 10px; }
+          .body .header nav .navOpciones li .linkNav img {
+            width: 40px;
+            height: 40px; }
+    .body .header:hover {
+      width: 200px; }
+    .body .header:hover nav .navOpciones .linkNav {
+      font-size: 1em;
+      opacity: 1;
+      transition: 1s; }
   .body main {
     width: 100%;
-    background-color: red;
+    height: 100%;
+    background-color: #e6d5a6;
     display: flex;
     flex-direction: column;
     align-items: center; }
@@ -49,7 +71,7 @@
       height: 90%;
       width: 95%;
       margin: 40px;
-      background-color: rgba(93, 180, 192, 0.952);
+      background-color: rgba(165, 42, 42, 0.98);
       border: 2px solid black;
       position: fixed;
       top: 0;
@@ -60,45 +82,76 @@
       justify-content: center;
       align-items: center;
       gap: 20px; }
-    .body main .inicio {
+      .body main #preguntaEdad #ingresaEdad {
+        font-family: "Aboreto", cursive;
+        font-weight: bold; }
+      .body main #preguntaEdad #edad {
+        height: 2.5%;
+        width: 50%;
+        text-align: center;
+        border: 2px solid black;
+        border-radius: 5px; }
+      .body main #preguntaEdad #ingresar {
+        height: 5%;
+        width: 20%;
+        background-color: #771e1e;
+        border: 2px solid black;
+        border-radius: 5px;
+        color: #dddddd;
+        font-weight: bold; }
+        .body main #preguntaEdad #ingresar:hover {
+          background-color: #571616; }
+    .body main #inicio {
       height: 100vh;
-      width: 99%;
-      border: 2px solid black; }
-      .body main .inicio h1 {
+      width: 99%; }
+      .body main #inicio h1 {
         height: 5%;
         width: 100%;
-        text-align: center; }
-      .body main .inicio div {
+        text-align: center;
+        font-family: "Aboreto", cursive; }
+      .body main #inicio div {
         height: 95%;
         position: relative;
         bottom: 0; }
-        .body main .inicio div p {
+        .body main #inicio div p {
           height: 20%;
           padding: 20px;
-          background-color: rgba(0, 0, 0, 0.384);
+          background-color: #00000061;
           position: absolute;
           bottom: 0;
-          font-weight: bold; }
-    .body main .masPopulares {
+          overflow-y: auto;
+          font-family: "Dancing Script", cursive;
+          font-size: 24px;
+          font-weight: bold;
+          text-align: justify; }
+    .body main #masPopulares {
       height: 100vh;
       width: 99%;
+      margin-top: 5%;
       position: relative; }
-      .body main .masPopulares h1 {
+      .body main #masPopulares h1 {
         height: 10%;
         width: 100%;
+        font-family: "Aboreto", cursive;
         text-align: center; }
-      .body main .masPopulares p {
+      .body main #masPopulares p {
         height: 20%;
         padding: 20px;
         position: absolute;
         bottom: 0;
-        color: white;
-        background-color: rgba(0, 0, 0, 0.253); }
+        overflow-y: auto;
+        background-color: #00000061;
+        font-family: "Dancing Script", cursive;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: justify; }
     .body main #catalogo {
       height: 100vh;
-      width: 99%; }
+      width: 99%;
+      margin-top: 5%; }
       .body main #catalogo h1 {
-        text-align: center; }
+        text-align: center;
+        font-family: "Aboreto", cursive; }
       .body main #catalogo .productos {
         height: 100%;
         width: 100%;
@@ -106,43 +159,54 @@
         justify-items: center;
         align-items: center;
         gap: 20px;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
         .body main #catalogo .productos div {
           padding: 10px;
           border-radius: 5px;
           border: 2px solid black;
-          background-color: #97deeb;
           display: flex;
           flex-direction: column;
           align-items: center; }
           .body main #catalogo .productos div img {
             border-radius: 5px; }
-    .body main .info {
+    .body main #info {
       height: 100vh;
-      width: 99%; }
-      .body main .info h1 {
+      width: 99%;
+      margin-top: 5%; }
+      .body main #info h1 {
+        font-family: "Aboreto", cursive;
         text-align: center; }
-      .body main .info div {
+      .body main #info div {
         height: 100%;
         padding: 20px;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
         align-items: center; }
-        .body main .info div div {
+        .body main #info div p {
+          text-align: justify;
+          font-family: "Dancing Script", cursive;
+          font-size: 24px;
+          font-weight: bold;
+          text-align: justify; }
+        .body main #info div div {
           display: grid;
           grid-template-columns: 1fr 1fr;
           grid-template-rows: 2fr 2fr;
           justify-items: center;
           gap: 10px; }
-          .body main .info div div iframe {
+          .body main #info div div iframe {
+            height: 100%;
+            width: 100%;
+            border-radius: 10px;
             grid-column-start: 1;
-            grid-column-end: 3;
-            max-width: 560px;
-            min-width: 100px;
-            max-height: 315px;
-            min-height: 60px; }
-    .body main .contactanos {
+            grid-column-end: 3; }
+    .body main #contactanos {
       height: 100vh;
-      width: 99%; }
-      .body main .contactanos h1 {
+      width: 99%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; }
+      .body main #contactanos h1 {
+        font-family: "Aboreto", cursive;
         text-align: center; }

@@ -8,11 +8,6 @@
     width: 99%;
 }
 
-@mixin bordeNegro {
-    border: 2px solid black;
-}
-
-
 @mixin relativeTop{
     position: relative;
     top: 0;
@@ -21,4 +16,11 @@
 @mixin relativeBottom {
     position: relative;
     bottom: 0;
+}
+
+@mixin styleText {
+    font-family: $font-text;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: justify; 
 }
