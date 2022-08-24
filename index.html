@@ -27,12 +27,23 @@
         </nav>
     </header>
     <main>
-        <div id="preguntaEdad">
+        <div id="preguntaEdad">     <!--Pregunta de la mayoria de edad-->
             <h1 id="ingresaEdad">INGRESA TU EDAD</h1>
             <input id="edad" type="number">
             <input type="button" id="ingresar" value="Ingresar" >
         </div>
-        <div id="inicio">
+        <div id="inicioSesion">
+            <img src="./assets/iconos/icono_login.png" alt="icono login">
+            <h1>INICIAR SESIÓN</h1>
+            <p id="sesionText">Solo para empleados</p>
+            <p>Usuario: admin | Contraseña: admin</p>
+            <input type="text" id="inputUser" placeholder="Usuario">
+            <input type="password" id="inputPass" placeholder="Contraseña">
+            <label><input type="checkbox" id="mantenerSesion">Mantener sesion iniciada</label>
+            <input type="button" id="iniciarSesion" value="Iniciar">
+        </div>
+        <button id="cerrarSesion">CERRAR SESION</button>
+        <div id="inicio">           
             <h1>BREWERY</h1>
             <div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus repudiandae omnis eveniet minima? Placeat sit explicabo asperiores iure! Soluta non facilis quia nemo repudiandae est, rerum quisquam quidem earum a! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam soluta, nemo impedit unde rerum culpa quae numquam, accusamus commodi corporis suscipit facere nesciunt aliquam sunt saepe aliquid? Quas, temporibus. Corporis! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus quaerat laborum eveniet rem, consectetur harum error dolor excepturi doloremque aperiam cupiditate ipsum, totam ratione eius minus possimus? Aspernatur, iusto eveniet. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam voluptas saepe unde molestias eius sit rerum quis iure illum odio ratione maxime, minima quod ad, tenetur eum sequi neque! Ea!</p>
@@ -45,6 +56,16 @@
         <div id="catalogo">
             <h1>CATALOGO</h1>
             <div class="productos" id="cartaProductos">
+                <div id="nuevoProducto" class="">
+                    <img src="./assets/iconos/icono_add.png" alt="">
+                    <label>Nombre del producto </label>
+                    <input type="text" id="newName">
+                    <label>Precio por litro </label>
+                    <input type="number" id="newPrice">
+                    <label>URL de imágen </label>
+                    <input type="text" id="newImg">
+                    <input type="button" id="addProduct" value="Añadir producto">
+                </div>
                 <!--Aqui se generan los productos en el JS-->
             </div>
         </div>

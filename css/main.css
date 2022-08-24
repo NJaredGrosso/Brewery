@@ -101,9 +101,75 @@ html {
         font-weight: bold; }
         .body main #preguntaEdad #ingresar:hover {
           background-color: #571616; }
+    .body main #inicioSesion {
+      height: 70%;
+      width: 60%;
+      border: 5px solid black;
+      border-radius: 5px;
+      background-color: #610000;
+      position: fixed;
+      right: -61%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9;
+      transition: 0.8s; }
+      .body main #inicioSesion:hover {
+        transition: 0.8s;
+        right: 0; }
+      .body main #inicioSesion img {
+        height: 60px;
+        margin: 2px;
+        border: 5px solid black;
+        border-radius: 5px;
+        background-color: #610000;
+        position: absolute;
+        left: -73px;
+        top: 0; }
+      .body main #inicioSesion #inputUser {
+        height: 2.5%;
+        width: 50%;
+        margin: 10px;
+        text-align: center;
+        border: 2px solid black;
+        border-radius: 5px; }
+      .body main #inicioSesion #inputPass {
+        height: 2.5%;
+        width: 50%;
+        margin: 10px;
+        text-align: center;
+        border: 2px solid black;
+        border-radius: 5px; }
+      .body main #inicioSesion #iniciarSesion {
+        height: 5%;
+        width: 20%;
+        background-color: #771e1e;
+        border: 2px solid black;
+        border-radius: 5px;
+        color: #dddddd;
+        font-weight: bold; }
+        .body main #inicioSesion #iniciarSesion:hover {
+          background-color: #571616; }
+    .body main #cerrarSesion {
+      height: 5%;
+      width: 20%;
+      margin: 10px;
+      background-color: #771e1e;
+      border: 2px solid black;
+      border-radius: 5px;
+      color: #dddddd;
+      font-weight: bold;
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      z-index: 9; }
+      .body main #cerrarSesion:hover {
+        background-color: #571616; }
     .body main #inicio {
-      height: 100vh;
-      width: 99%; }
+      min-height: 100vh;
+      max-height: fit-content;
+      width: 100%; }
       .body main #inicio h1 {
         height: 5%;
         width: 100%;
@@ -125,8 +191,9 @@ html {
           font-weight: bold;
           text-align: justify; }
     .body main #masPopulares {
-      height: 100vh;
-      width: 99%;
+      min-height: 100vh;
+      max-height: fit-content;
+      width: 100%;
       margin-top: 5%;
       position: relative; }
       .body main #masPopulares h1 {
@@ -146,8 +213,9 @@ html {
         font-weight: bold;
         text-align: justify; }
     .body main #catalogo {
-      height: 100vh;
-      width: 99%;
+      min-height: 100vh;
+      max-height: fit-content;
+      width: 100%;
       margin-top: 5%; }
       .body main #catalogo h1 {
         text-align: center;
@@ -161,6 +229,7 @@ html {
         gap: 20px;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
         .body main #catalogo .productos div {
+          height: 350px;
           padding: 10px;
           border-radius: 5px;
           border: 2px solid black;
@@ -168,10 +237,22 @@ html {
           flex-direction: column;
           align-items: center; }
           .body main #catalogo .productos div img {
+            height: 300px;
+            width: 215px;
             border-radius: 5px; }
+          .body main #catalogo .productos div #addProduct {
+            padding: 5px;
+            background-color: #771e1e;
+            border: 2px solid black;
+            border-radius: 5px;
+            color: #dddddd;
+            font-weight: bold; }
+            .body main #catalogo .productos div #addProduct:hover {
+              background-color: #571616; }
     .body main #info {
-      height: 100vh;
-      width: 99%;
+      min-height: 100vh;
+      max-height: fit-content;
+      width: 100%;
       margin-top: 5%; }
       .body main #info h1 {
         font-family: "Aboreto", cursive;
@@ -201,8 +282,9 @@ html {
             grid-column-start: 1;
             grid-column-end: 3; }
     .body main #contactanos {
-      height: 100vh;
-      width: 99%;
+      min-height: 100vh;
+      max-height: fit-content;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -210,3 +292,9 @@ html {
       .body main #contactanos h1 {
         font-family: "Aboreto", cursive;
         text-align: center; }
+
+.visible {
+  display: flex; }
+
+.oculto {
+  visibility: hidden; }
