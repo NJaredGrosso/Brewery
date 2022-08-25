@@ -1,6 +1,6 @@
 
 // Variables /////////////////////////
-    let fstTime
+    let primeraVez = localStorage.getItem('primeraVez')
 
     let sesion = sessionStorage.getItem('sesion')
     let empleado = localStorage.getItem('empleado')
@@ -12,7 +12,7 @@
     let cartelInput = document.getElementById("edad")
     let cartelButton = document.getElementById("ingresar")
 
-
+    
 //Funciones //////////////////////////
 
 const cambiarCartel = () =>{
@@ -28,28 +28,28 @@ const guardarCervezas = (clave, valor) => {
 //Array //////////////////////////////
     class Cerveza {
         constructor(nombre, precioXlitro, imagen){
-            this.nombre = nombre;
-            this.precioXlitro = precioXlitro;
-            this.imagen = imagen;
+            this.nombre = nombre
+            this.precioXlitro = precioXlitro
+            this.imagen = imagen
         }
     }
 
     const cervezas = [];
 
-    const cervezasGuardadas = JSON.parse(localStorage.getItem("listaCervezas"))
-
-    if (cervezas.length > 0 || fstTime == 'false'){
-        for (const objeto of cervezasGuardadas) {
-            cervezas.push(new Cerveza(objeto))
-        }
-    }else{
+    if (primeraVez == 'true') {
+        let temporal = JSON.parse(localStorage.getItem("cervezasGuardadas"))
+        Array.prototype.push.apply(cervezas, temporal)
+    } else {
         cervezas.push(new Cerveza("IPA", 250, "./assets/productos/cerveza_IPA.png"))
         cervezas.push(new Cerveza("APA", 280, "./assets/productos/cerveza_APA.png"))
         cervezas.push(new Cerveza("Golden", 220, "./assets/productos/cerveza_golden.png"))
         cervezas.push(new Cerveza("Porter", 250, "./assets/productos/cerveza_porter.png"))
-        fstTime = false
-        sessionStorage.setItem('fstTime', fstTime)
+        let cervezasString = JSON.stringify(cervezas)
+        localStorage.setItem('cervezasGuardadas', cervezasString) 
+        localStorage.setItem('primeraVez', true)
     }
+
+
 //Eventos/////////////////////////////
 
     ingresar.onclick = () =>{           //Pregunta de edad
@@ -92,7 +92,9 @@ const guardarCervezas = (clave, valor) => {
 
         cervezas.push(new Cerveza(newName, newPrice, newImg))
 
-        guardarCervezas("listaCervezas", JSON.stringify(cervezas))
+        let cervezasString = JSON.stringify(cervezas)
+        localStorage.setItem('cervezasGuardadas', cervezasString) 
+        console.log(typeof localStorage.getItem('cervezasGuardadas'))
         location.reload()
     }
 //Codigo ////////////////////////////
@@ -105,11 +107,11 @@ Edad >= 18 && cartel.remove()                               //Corrovoramos si la
 const carta = document.getElementsByClassName("productos"); //Creamos los elementos del catalogo
 
 for (const cerveza of cervezas) {
-    
     let contenedor = document.createElement("div")
-    contenedor.innerHTML = `<img src="${cerveza.imagen}" alt="">
-                            <h3> ${cerveza.nombre}</h3>
-                            <b> $${cerveza.precioXlitro} x litro</b>`;
+    contenedor.innerHTML = `<img src="${cerveza.imagen}" alt="Imagen cerveza">
+                            <h3>${cerveza.nombre}</h3>
+                            <b>$${cerveza.precioXlitro} x litro</b>`;
+
     cartaProductos.appendChild(contenedor);
 }
 
