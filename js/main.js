@@ -25,6 +25,8 @@ const guardarCervezas = (clave, valor) => {
     localStorage.setItem(clave, valor)
 }
 
+
+
 //Array //////////////////////////////
     class Cerveza {
         constructor(nombre, precioXlitro, imagen){
@@ -94,8 +96,22 @@ const guardarCervezas = (clave, valor) => {
 
         let cervezasString = JSON.stringify(cervezas)
         localStorage.setItem('cervezasGuardadas', cervezasString) 
-        console.log(typeof localStorage.getItem('cervezasGuardadas'))
-        location.reload()
+        
+        let contenedor = document.createElement("div")
+        let i = (cervezas.length - 1)
+        contenedor.innerHTML = `<img src="${cervezas[i].imagen}" alt="Imagen cerveza">
+                                <h3>${cervezas[i].nombre}</h3>
+                                <b>$${cervezas[i].precioXlitro} x litro</b>`;
+
+        cartaProductos.appendChild(contenedor);
+        Toastify({
+            text: "Producto agregado",
+            duration: 3000,
+            style: {
+                background: "#771e1e",
+                border: "2px solid black",
+              },
+            }).showToast();
     }
 //Codigo ////////////////////////////
 
@@ -126,3 +142,5 @@ for (const cerveza of cervezas) {
         nuevoProducto.remove();
 
     }
+
+
