@@ -15,20 +15,20 @@
     
 //Funciones //////////////////////////
 
-const cambiarCartel = () =>{
+const cambiarCartel = () =>{                    //Modificacion del cartel de edad
     cartelTexto.innerText = "NO TIENES EDAD SUFICIENTE"
     cartelInput.remove()
     cartelButton.remove()
 }
 
-const guardarCervezas = (clave, valor) => {
+const guardarCervezas = (clave, valor) => {     //Guardado de producto en localstorage
     localStorage.setItem(clave, valor)
 }
 
 
 
 //Array //////////////////////////////
-    class Cerveza {
+    class Cerveza {                             //Constructor de productos
         constructor(nombre, precioXlitro, imagen){
             this.nombre = nombre
             this.precioXlitro = precioXlitro
@@ -38,7 +38,7 @@ const guardarCervezas = (clave, valor) => {
 
     const cervezas = [];
 
-    if (primeraVez == 'true') {
+    if (primeraVez == 'true') {                 //Aqui controlamos el array para que no se muestre vacio, y muestre los productos base
         let temporal = JSON.parse(localStorage.getItem("cervezasGuardadas"))
         Array.prototype.push.apply(cervezas, temporal)
     } else {
@@ -65,11 +65,39 @@ const guardarCervezas = (clave, valor) => {
         sessionStorage.setItem('Edad', edad)
     }
 
+    //obtenemos los datos de usuario y contraseña con Fetch
+    let usuariosYcontraseñas = []
+
+    const getDatos = async () => {
+        try{
+            const respuesta = await fetch("./usuarios.json");
+            usuariosYcontraseñas = await respuesta.json()
+            console.log("acceso a base de datos correcto")
+        }catch(error) {
+            console.error("Error al acceder a base de usuarios y contraseñas")
+        }
+    }
+
+    getDatos();
+
     iniciarSesion.onclick = () =>{      //Iniciar Sesion
         let usuario = document.getElementById("inputUser").value
         let pass = document.getElementById("inputPass").value
         let mantenerSesion = document.getElementById("mantenerSesion")
 
+        for (const cuenta of usuariosYcontraseñas) {
+            if (usuario == cuenta.usuario && pass == cuenta.contraseña){
+                sessionStorage.setItem('sesion', true)
+                mantenerSesion.checked? empleado = true : empleado = false
+                localStorage.setItem('empleado', empleado)
+                console.log(empleado)
+                location.reload()
+            }else{
+                sesionText.innerText = "> USUARIO Y/O CONTRASEÑA INCORRECTOS <"
+            }
+        }
+
+/*
         if (usuario == "admin" && pass == "admin") {
             sessionStorage.setItem('sesion', true)
             mantenerSesion.checked? empleado = true : empleado = false
@@ -79,6 +107,7 @@ const guardarCervezas = (clave, valor) => {
         }else{
             sesionText.innerText = "> USUARIO Y CONTRASEÑA INCORRECTOS <"
         }
+        */
     }
 
     cerrarSesion.onclick = () =>{       //Cerrar sesion
@@ -87,7 +116,7 @@ const guardarCervezas = (clave, valor) => {
         location.reload()
     }
 
-    addProduct.onclick = () =>{
+    addProduct.onclick = () =>{         //Adicion de productos
         let newName = document.getElementById("newName").value
         let newPrice = document.getElementById("newPrice").value
         let newImg = document.getElementById("newImg").value
@@ -131,7 +160,7 @@ for (const cerveza of cervezas) {
     cartaProductos.appendChild(contenedor);
 }
 
-    //Modo empleados////////////////////////// 
+//Modo empleados o clientes////////////
     if (empleado == 'true' || sesion == 'true') {
 
         inicioSesion.remove();
