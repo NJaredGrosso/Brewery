@@ -40,29 +40,43 @@ addProduct.onclick = () =>{         //Creamos un evento para cuando se quieran a
     let newName = document.getElementById("newName").value
     let newPrice = document.getElementById("newPrice").value
     let newImg = document.getElementById("newImg").value
-    
-    cervezas.push(new Cerveza(newName, newPrice, newImg))   //Cargamos el nuevo producto en nuestro array
-        
-    let cervezasString = JSON.stringify(cervezas)       //Creamos un JSON de nuestro array de productos
-    localStorage.setItem('cervezasGuardadas', cervezasString)   //Lo guardamos en el storage
-        
-    //pintamos el nuevo producto en nuestra página
-    let contenedor = document.createElement("div")
-    let i = (cervezas.length - 1)
-    contenedor.innerHTML = `<img src="${cervezas[i].imagen}" alt="Imagen cerveza">
-                            <h3>${cervezas[i].nombre}</h3>
-                            <b>$${cervezas[i].precioXlitro} x litro</b>`;
-        
-    cartaProductos.appendChild(contenedor);
 
-    Toastify({      //Utilizamos toastify para mostrar una toast notificando que se cargó el nuevo producto
-        text: "Producto agregado",
-        duration: 3000,
-        style: {
-            background: "#771e1e",
-            border: "2px solid black",
-        },
+    if (newName && newPrice && newImg) {    //Con un if corroboramos que haya algo ingresado en los input
+        
+        cervezas.push(new Cerveza(newName, newPrice, newImg))   //Cargamos el nuevo producto en nuestro array
+            
+        let cervezasString = JSON.stringify(cervezas)       //Creamos un JSON de nuestro array de productos
+        localStorage.setItem('cervezasGuardadas', cervezasString)   //Lo guardamos en el storage
+            
+        //pintamos el nuevo producto en nuestra página
+        let contenedor = document.createElement("div")
+        let i = (cervezas.length - 1)
+        contenedor.innerHTML = `<img src="${cervezas[i].imagen}" alt="Imagen cerveza">
+                                <h3>${cervezas[i].nombre}</h3>
+                                <b>$${cervezas[i].precioXlitro} x litro</b>`;
+            
+        cartaProductos.appendChild(contenedor);
+
+        Toastify({      //Utilizamos toastify para mostrar una toast notificando que se cargó el nuevo producto
+            text: "Producto agregado",
+            duration: 3000,
+            position: "center",
+            style: {
+                background: "#771e1e",
+                border: "2px solid black",
+            },
+            }).showToast();
+    } else {            //Si no hubiera nada ingresado nos mostrara una TOast diciendo que los valores no son validos
+        Toastify({
+            text: "Valores no validos",
+            duration: 3000,
+            position: "center",
+            style:{
+                background: "#ff0000",
+                border:"2px solid black"
+            }
         }).showToast();
+    }
 }
 
 

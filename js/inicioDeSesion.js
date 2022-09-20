@@ -39,3 +39,4 @@ cerrarSesion.onclick = () =>{       //Evento que se acciona al pulsar el boton d
     localStorage.setItem('empleado', false)
     location.reload()
 }
+

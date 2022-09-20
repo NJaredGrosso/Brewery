@@ -22,3 +22,4 @@ ingresar.onclick = () =>{           //Con un evento realizamos la comparacion de
 let Edad = sessionStorage.getItem('Edad')   //Obtenemos el dato de edad de la sessionStorage en caso de que ya exista
 
 Edad >= 18 && cartel.remove()  //Si ya fue ingresados y cumple los requsitos, no mostramos el cartel
+
