@@ -16,16 +16,19 @@ html {
     width: 100%;
     display: grid;
     grid-template-columns: 95px auto;
+    overflow-x: hidden;
     .header{
-        width: 95px;
+        width: 89px;
         height: 100vh;
         padding: 10px;
         background-color: $col-bordo;
+        border-right: 1px solid black;
         display: flex;
         flex-direction: column;
         align-items: center;
         position: sticky;
         top: 0;
+        left: 0;
         z-index: 10;
         transition: 1s;
         .logo{
@@ -195,20 +198,30 @@ html {
         }
         #inicio{
             @include cienvh;
+            overflow: hidden;
+            #imgFondo{
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                overflow-x: hidden;
+                z-index: 1;
+            }
             h1{
                 height: 5%;
                 width: 100%;
                 text-align: center;
                 font-family: $font-titulos;
-                
+                z-index: 5;
             }
             div{
                 height: 95%;
                 position: relative;
                 bottom: 0;
+                z-index: 5;
                 p{
-                    height: 20%;
+                    height: max-content;
                     padding: 20px;
+                    padding-left: 40px;
                     background-color: $col-transp;
                     position: absolute;
                     bottom: 0;
@@ -217,29 +230,12 @@ html {
                 }
             }
         }
-        #masPopulares{
-            @include cienvh;
-            margin-top: 5%;
-            position: relative;
-            h1{
-                height: 10%;
-                width: 100%;
-                font-family: $font-titulos;
-                text-align: center;
-            }
-            p{
-                height: 20%;
-                padding: 20px;
-                position: absolute;
-                bottom: 0;
-                overflow-y: auto;
-                background-color: $col-transp;
-                @include styleText;
-            }
-        }
         #catalogo{
             @include cienvh;
+
             margin-top: 5%;
+            background: linear-gradient(to bottom, $col-fondo, $col-buttons);
+            padding: 20px;
             h1{
                 text-align: center;
                 font-family: $font-titulos;
@@ -256,7 +252,6 @@ html {
                     height: 350px;
                     padding: 10px;
                     border-radius: 5px;
-                    border: 2px solid black;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -281,10 +276,12 @@ html {
         }
         #info{
             @include cienvh;
-            margin-top: 5%;
+            padding: 20px;
+            background: linear-gradient(to bottom, $col-buttons, $col-fondo);
             h1{
                 font-family: $font-titulos;
-                text-align: center
+                text-align: center;
+                
             }
             div{
                 height: 100%;
@@ -293,8 +290,10 @@ html {
                 grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
                 align-items: center;
                 p{
+                    width: 90%;
                     text-align: justify;
                     @include styleText;
+                    padding: 5px;
                 }
                 div{
                     display: grid;
@@ -309,18 +308,31 @@ html {
                         grid-column-start: 1;
                         grid-column-end: 3;
                     }
+                    img{
+                        width: 100%;
+                        height: 80%;
+                        margin-bottom: 5%;
+                        border-radius: 10px;
+                    }
                 }
             }
         }
         #contactanos{
-            @include cienvh;
+            width: 100%;
+            padding: 5%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            background: linear-gradient(to bottom, $col-fondo, $col-buttons);
             h1{
                 font-family: $font-titulos;
                 text-align: center;
+            }
+            p{
+                text-align: center;
+                font-family: $font-titulos;
+                font-weight: bold;
             }
 
         }

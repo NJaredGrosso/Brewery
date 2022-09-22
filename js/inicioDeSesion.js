@@ -17,12 +17,13 @@ iniciarSesion.onclick = () =>{      //Evento que se acciona al intentar iniciar 
     
     //obtenemos los valores ingresados
     let usuario = document.getElementById("inputUser").value
+    
     let pass = document.getElementById("inputPass").value
     let mantenerSesion = document.getElementById("mantenerSesion")
     
     //los comparamos con nuestra base de datos
     for (const cuenta of usuariosYcontraseñas) {
-        if (usuario == cuenta.usuario && pass == cuenta.contraseña){
+        if (usuario.toLowerCase() == cuenta.usuario && pass == cuenta.contraseña){
             sessionStorage.setItem('sesion', true)
             mantenerSesion.checked? empleado = true : empleado = false      //Corroboramos la casilla de "mantener sesion iniciada"
             localStorage.setItem('empleado', empleado)
